@@ -35,20 +35,28 @@ class Menu extends Component {
 
   renderComment(dish) {
     if (dish != null)
-        return(
-            <Card>
-              <CardTitle>Comment</CardTitle>
-                <CardBody>
-                <CardText>{dish.name}</CardText>
-                <CardText>{dish.comment}</CardText>
-                </CardBody>
-            </Card>
-        );
-    else
-        return(
-            <div></div>
-        );
-}
+          return(
+              <Card>
+                <h2>Comments </h2>                 
+                  <CardBody>
+                    <div>{dish.comments.map((cm, index)=>(
+                        <div key={index}>{cm.comment} 
+                        {/* <div>-- {cm.author}, {cm.date}</div> */}
+                        <div>{cm.author}</div>
+                        <div>-- {cm.date}</div>
+                        </div>
+                    )
+                    )}</div>
+                    
+                    
+                  </CardBody>
+              </Card>
+          );
+      else
+          return(
+              <div></div>
+          );
+  }
 
 // reder ra man hinh chinh
   render() {
